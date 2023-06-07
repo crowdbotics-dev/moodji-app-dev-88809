@@ -9,7 +9,9 @@ const Untitled1 = () => {
       padding: 10,
       position: 'relative',
       flex: 1
-    }}><Text style={styles.MUqHPBkJ}>{"Studio placeholder splash screen"}</Text></ScrollView>
+    }}>
+      <Text style={styles.MUqHPBkJ}>"Studio placeholder splash screen"</Text>
+</ScrollView>
     </SafeAreaView>;
 };
 
