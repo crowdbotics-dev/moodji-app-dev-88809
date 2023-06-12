@@ -1,5 +1,6 @@
 import { api_v1_login_create } from "../../store/moodjiappdevAPI/authTokens.slice.js"
 import { useDispatch } from "react-redux"
+import { unwrapResult } from "@reduxjs/toolkit"
 import React, { useState } from "react"
 import {
   View,
@@ -19,15 +20,21 @@ const LoginScreen = ({ navigation }) => {
   const onSubmit = () => {
     dispatch(
       api_v1_login_create({
-        email,
-        password
+        data: {
+          email,
+          password
+        }
       })
     )
-      .then(() => {
+      .then((response) => {
         const result = unwrapResult(response)
+        console.log(response)
         navigation.navigate("Untitled4", result)
       })
-      .catch(() => Alert.alert("Something went wrong!"))
+      .catch((err) => {
+        Alert.alert("Something went wrong!\n" + err.message)
+        console.log(err.message)
+      })
   }
 
   return (
