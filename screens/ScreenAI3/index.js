@@ -10,7 +10,7 @@ const LoginScreen = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return <View style={styles.container}>
-      <Image source={require("./Pink Blue Cute Illustration Cat Adoption Logo.png")} style={styles.logo} />
+      <Image source={require("./Pink Blue Cute Illustration Cat Adoption Logo.png")} style={styles.logo} resizeMode="cover" />
       <TextInput style={styles.input} onChangeText={setEmail} value={email} placeholder="Email" keyboardType="email-address" autoCapitalize="none" clearTextOnFocus={true} enablesReturnKeyAutomatically={true} rejectResponderTermination={true} scrollEnabled={true} />
       <TextInput style={styles.input} onChangeText={setPassword} value={password} placeholder="Password" secureTextEntry />
       <Pressable style={styles.button} onPress={onSubmit}>
@@ -22,7 +22,7 @@ const LoginScreen = ({
     dispatch(loginRequest({
       email,
       password
-    }).then(data => {
+    }).then(() => {
       const result = unwrapResult(response);
       navigation.navigate("Untitled4", result);
     }).catch(() => Alert.alert("Something went wrong!")));
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fdfbf9"
   },
   logo: {
-    width: "100%",
-    height: 218,
+    width: 356,
+    height: 241,
     marginBottom: 30
   },
   input: {
