@@ -11,7 +11,7 @@ const Untitled1 = () => {
       flex: 1
     }}>
       <Text style={styles.MUqHPBkJ}>"Studio placeholder splash screen"</Text>
-</ScrollView>
+    </ScrollView>
     </SafeAreaView>;
 };
 
