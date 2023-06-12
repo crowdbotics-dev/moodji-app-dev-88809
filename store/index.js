@@ -1,4 +1,5 @@
 import storeSlices from "./*/*.slice.js"; // Minimal check to see if imported slice has all properties of an actual slice
+import "./config.js";
 
 const isValid = slice => {
   const sliceProps = ["actions", "caseReducers", "name", "reducer", "getInitialState"];
