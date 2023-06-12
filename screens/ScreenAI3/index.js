@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
     dispatch(
       api_v1_login_create({
         data: {
-          email,
+          username: email,
           password
         }
       })
