@@ -1,8 +1,8 @@
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import { StyleSheet, ScrollView, SafeAreaView } from "react-native";
 
-const Untitled4 = ({
+const WelcomeScreen = ({
   route
 }) => {
   const user = route?.params?.user || {};
@@ -13,21 +13,41 @@ const Untitled4 = ({
       position: "relative",
       flex: 1
     }}>
-        <Text style={styles.uEkwaUbu}>Welcome to my app! {user.email}</Text>
+        <View style={styles.container}>
+          <Text style={styles.title}>Welcome to Modd Tracker!</Text>
+          <Text style={styles.subtitle}>Track and manage your moods</Text>
+          <Text style={styles.user}>Logged in as: {user.email}</Text>
+        </View>
       </ScrollView>
     </SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
   safeArea: {
-    height: "100%"
+    flex: 1,
+    backgroundColor: "#f0f0f1"
   },
-  uEkwaUbu: {
-    width: 100,
-    height: 50,
-    lineHeight: 14,
-    fontSize: 14,
-    borderRadius: 0
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#ff66ab",
+    marginBottom: 10
+  },
+  subtitle: {
+    fontSize: 18,
+    color: "#ff66ab",
+    marginBottom: 20
+  },
+  user: {
+    fontSize: 16,
+    color: "#000",
+    marginBottom: 10
   }
 });
-export default Untitled4;
+export default WelcomeScreen;
