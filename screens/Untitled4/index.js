@@ -14,7 +14,7 @@ const WelcomeScreen = ({
       flex: 1
     }}>
         <View style={styles.container}>
-          <Text style={styles.title}>Welcome to Modd Tracker!</Text>
+          <Text style={styles.title}>{"Welcome to Moodji\nMood Tracker!"}</Text>
           <Text style={styles.subtitle}>Track and manage your moods</Text>
           <Text style={styles.user}>Logged in as: {user.email}</Text>
         </View>
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     color: "#ff66ab",
-    marginBottom: 10
+    marginBottom: 10,
+    textAlign: "center"
   },
   subtitle: {
     fontSize: 18,
