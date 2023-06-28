@@ -20,28 +20,40 @@ const signupsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    return builder
-      .addCase(pending, (state, action) => {
-        state.api.loading = "pending"
+    builder
+      .addCase(api_v1_signup_create.pending, (state, action) => {
+        if (state.api.loading === "idle") {
+          state.api.loading = "pending"
+        }
       })
-      .addCase(fulfilled, (state, action) => {
-        state.entities.push(action.payload)
-        state.api.loading = "idle"
+      .addCase(api_v1_signup_create.fulfilled, (state, action) => {
+        if (state.api.loading === "pending") {
+          state.entities.push(action.payload)
+          state.api.loading = "idle"
+        }
       })
-      .addCase(rejected, (state, action) => {
-        state.api.error = action.error
-        state.api.loading = "idle"
+      .addCase(api_v1_signup_create.rejected, (state, action) => {
+        if (state.api.loading === "pending") {
+          state.api.error = action.error
+          state.api.loading = "idle"
+        }
       })
-      .addCase(pending, (state, action) => {
-        state.api.loading = "pending"
+      .addCase(rest_auth_registration_create.pending, (state, action) => {
+        if (state.api.loading === "idle") {
+          state.api.loading = "pending"
+        }
       })
-      .addCase(fulfilled, (state, action) => {
-        state.entities.push(action.payload)
-        state.api.loading = "idle"
+      .addCase(rest_auth_registration_create.fulfilled, (state, action) => {
+        if (state.api.loading === "pending") {
+          state.entities.push(action.payload)
+          state.api.loading = "idle"
+        }
       })
-      .addCase(rejected, (state, action) => {
-        state.api.error = action.error
-        state.api.loading = "idle"
+      .addCase(rest_auth_registration_create.rejected, (state, action) => {
+        if (state.api.loading === "pending") {
+          state.api.error = action.error
+          state.api.loading = "idle"
+        }
       })
   }
 })
