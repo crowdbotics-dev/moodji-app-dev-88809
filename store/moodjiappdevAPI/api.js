@@ -4,19 +4,19 @@ const moodjiappdevAPI = axios.create({
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
 function api_v1_login_create(payload) {
-  return moodjiappdevAPI.post(`/api/v1/login/`, payload)
+  return moodjiappdevAPI.post(`/api/v1/login/`, payload.data)
 }
 function api_v1_signup_create(payload) {
-  return moodjiappdevAPI.post(`/api/v1/signup/`, payload)
+  return moodjiappdevAPI.post(`/api/v1/signup/`, payload.data)
 }
 function rest_auth_user_retrieve(payload) {
   return moodjiappdevAPI.get(`/rest-auth/user/`)
 }
 function rest_auth_user_update(payload) {
-  return moodjiappdevAPI.put(`/rest-auth/user/`, payload)
+  return moodjiappdevAPI.put(`/rest-auth/user/`, payload.data)
 }
 function rest_auth_user_partial_update(payload) {
-  return moodjiappdevAPI.patch(`/rest-auth/user/`, payload)
+  return moodjiappdevAPI.patch(`/rest-auth/user/`, payload.data)
 }
 function api_docs_schema_retrieve(payload) {
   return moodjiappdevAPI.get(`/api-docs/schema/`, {
@@ -24,7 +24,7 @@ function api_docs_schema_retrieve(payload) {
   })
 }
 function rest_auth_login_create(payload) {
-  return moodjiappdevAPI.post(`/rest-auth/login/`, payload)
+  return moodjiappdevAPI.post(`/rest-auth/login/`, payload.data)
 }
 function rest_auth_logout_retrieve(payload) {
   return moodjiappdevAPI.get(`/rest-auth/logout/`)
@@ -33,19 +33,25 @@ function rest_auth_logout_create(payload) {
   return moodjiappdevAPI.post(`/rest-auth/logout/`)
 }
 function rest_auth_registration_create(payload) {
-  return moodjiappdevAPI.post(`/rest-auth/registration/`, payload)
+  return moodjiappdevAPI.post(`/rest-auth/registration/`, payload.data)
 }
 function rest_auth_password_reset_create(payload) {
-  return moodjiappdevAPI.post(`/rest-auth/password/reset/`, payload)
+  return moodjiappdevAPI.post(`/rest-auth/password/reset/`, payload.data)
 }
 function rest_auth_password_change_create(payload) {
-  return moodjiappdevAPI.post(`/rest-auth/password/change/`, payload)
+  return moodjiappdevAPI.post(`/rest-auth/password/change/`, payload.data)
 }
 function rest_auth_password_reset_confirm_create(payload) {
-  return moodjiappdevAPI.post(`/rest-auth/password/reset/confirm/`, payload)
+  return moodjiappdevAPI.post(
+    `/rest-auth/password/reset/confirm/`,
+    payload.data
+  )
 }
 function rest_auth_registration_verify_email_create(payload) {
-  return moodjiappdevAPI.post(`/rest-auth/registration/verify-email/`, payload)
+  return moodjiappdevAPI.post(
+    `/rest-auth/registration/verify-email/`,
+    payload.data
+  )
 }
 export const apiService = {
   api_v1_login_create,
